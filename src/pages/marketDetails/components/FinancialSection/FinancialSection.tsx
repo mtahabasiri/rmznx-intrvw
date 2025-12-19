@@ -1,12 +1,27 @@
 import { type FC } from "react";
 import { useTranslation } from "react-i18next";
 import type { MarketData } from "../../../../types/market";
-import "./FinancialSection.css";
+import "../SharedSection.css";
 
 interface FinancialSectionProps {
   market: MarketData;
   formatNumber: (value: string | number | undefined) => string;
 }
+
+interface FinancialItemProps {
+  label: string;
+  value: string | number | undefined;
+  formatNumber: (value: string | number | undefined) => string;
+}
+
+const FinancialItem: FC<FinancialItemProps> = ({ label, value, formatNumber }) => {
+  return (
+    <div className="section-item">
+      <span className="section-label">{label}</span>
+      <span className="section-value">{formatNumber(value)}</span>
+    </div>
+  );
+};
 
 const FinancialSection: FC<FinancialSectionProps> = ({ market, formatNumber }) => {
   const { t } = useTranslation();
@@ -15,38 +30,26 @@ const FinancialSection: FC<FinancialSectionProps> = ({ market, formatNumber }) =
     return null;
   }
 
+  const { last24h } = market.financial;
+
   return (
-    <div className="financial-section">
+    <div className="section">
       <h2>{t("financial")}</h2>
-      <div className="financial-grid">
-        <div className="financial-item">
-          <span className="financial-label">{t("high")}</span>
-          <span className="financial-value">{formatNumber(market.financial.last24h.highest)}</span>
-        </div>
-        <div className="financial-item">
-          <span className="financial-label">{t("low")}</span>
-          <span className="financial-value">{formatNumber(market.financial.last24h.lowest)}</span>
-        </div>
-        <div className="financial-item">
-          <span className="financial-label">Base {t("volume")}</span>
-          <span className="financial-value">
-            {formatNumber(market.financial.last24h.base_volume)}
-          </span>
-        </div>
-        <div className="financial-item">
-          <span className="financial-label">Quote {t("volume")}</span>
-          <span className="financial-value">
-            {formatNumber(market.financial.last24h.quote_volume)}
-          </span>
-        </div>
-        <div className="financial-item">
-          <span className="financial-label">Open</span>
-          <span className="financial-value">{formatNumber(market.financial.last24h.open)}</span>
-        </div>
-        <div className="financial-item">
-          <span className="financial-label">Close</span>
-          <span className="financial-value">{formatNumber(market.financial.last24h.close)}</span>
-        </div>
+      <div className="section-grid">
+        <FinancialItem label={t("high")} value={last24h.highest} formatNumber={formatNumber} />
+        <FinancialItem label={t("low")} value={last24h.lowest} formatNumber={formatNumber} />
+        <FinancialItem
+          label={`Base ${t("volume")}`}
+          value={last24h.base_volume}
+          formatNumber={formatNumber}
+        />
+        <FinancialItem
+          label={`Quote ${t("volume")}`}
+          value={last24h.quote_volume}
+          formatNumber={formatNumber}
+        />
+        <FinancialItem label="Open" value={last24h.open} formatNumber={formatNumber} />
+        <FinancialItem label="Close" value={last24h.close} formatNumber={formatNumber} />
       </div>
     </div>
   );

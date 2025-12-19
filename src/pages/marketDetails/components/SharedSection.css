@@ -1,15 +1,15 @@
-.financial-section {
+.section {
   margin-bottom: 1.5rem;
 }
 
-.financial-section h2 {
+.section h2 {
   margin: 0 0 1rem 0;
   font-size: 1.125rem;
   font-weight: 700;
   color: var(--text-primary);
 }
 
-.financial-grid {
+.section-grid {
   background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
   border-radius: 16px;
   padding: 1.5rem;
@@ -20,7 +20,7 @@
   box-shadow: 0 4px 12px var(--shadow);
 }
 
-.financial-item {
+.section-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -30,32 +30,32 @@
   transition: all 0.3s ease;
 }
 
-.financial-item:hover {
+.section-item:hover {
   background: var(--bg-tertiary);
   transform: translateX(4px);
 }
 
-.financial-item:last-child {
+.section-item:last-child {
   border-bottom: none;
   padding-bottom: 1rem;
 }
 
-.financial-label {
+.section-label {
   font-size: 0.875rem;
   color: var(--text-secondary);
 }
 
-.financial-value {
+.section-value {
   font-size: 1.125rem;
   font-weight: 700;
   color: var(--text-primary);
   letter-spacing: 0.02em;
 }
 
-.financial-value.positive {
+.section-value.positive {
   color: var(--positive);
 }
 
-.financial-value.negative {
+.section-value.negative {
   color: var(--negative);
 }

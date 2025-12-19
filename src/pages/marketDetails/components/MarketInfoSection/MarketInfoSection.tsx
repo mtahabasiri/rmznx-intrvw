@@ -1,32 +1,34 @@
 import { type FC } from "react";
 import type { MarketData } from "../../../../types/market";
-import "./MarketInfoSection.css";
+import "../SharedSection.css";
 
 interface MarketInfoSectionProps {
   market: MarketData;
 }
 
+interface InfoItemProps {
+  label: string;
+  value: string | number;
+}
+
+const InfoItem: FC<InfoItemProps> = ({ label, value }) => {
+  return (
+    <div className="section-item">
+      <span className="section-label">{label}</span>
+      <span className="section-value">{value}</span>
+    </div>
+  );
+};
+
 const MarketInfoSection: FC<MarketInfoSectionProps> = ({ market }) => {
   return (
-    <div className="market-info-section">
+    <div className="section">
       <h2>Market Information</h2>
-      <div className="info-grid">
-        <div className="info-item">
-          <span className="info-label">Base Currency</span>
-          <span className="info-value">{market.base_currency_symbol.en}</span>
-        </div>
-        <div className="info-item">
-          <span className="info-label">Quote Currency</span>
-          <span className="info-value">{market.quote_currency_symbol.en}</span>
-        </div>
-        <div className="info-item">
-          <span className="info-label">Amount Step</span>
-          <span className="info-value">{market.amount_step}</span>
-        </div>
-        <div className="info-item">
-          <span className="info-label">Price Step</span>
-          <span className="info-value">{market.price_step}</span>
-        </div>
+      <div className="section-grid">
+        <InfoItem label="Base Currency" value={market.base_currency_symbol.en} />
+        <InfoItem label="Quote Currency" value={market.quote_currency_symbol.en} />
+        <InfoItem label="Amount Step" value={market.amount_step} />
+        <InfoItem label="Price Step" value={market.price_step} />
       </div>
     </div>
   );
