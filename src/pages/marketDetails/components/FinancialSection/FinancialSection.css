@@ -1,0 +1,61 @@
+.financial-section {
+  margin-bottom: 1.5rem;
+}
+
+.financial-section h2 {
+  margin: 0 0 1rem 0;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.financial-grid {
+  background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+  border-radius: 16px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  border: 2px solid var(--border-color);
+  box-shadow: 0 4px 12px var(--shadow);
+}
+
+.financial-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.financial-item:hover {
+  background: var(--bg-tertiary);
+  transform: translateX(4px);
+}
+
+.financial-item:last-child {
+  border-bottom: none;
+  padding-bottom: 1rem;
+}
+
+.financial-label {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.financial-value {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: 0.02em;
+}
+
+.financial-value.positive {
+  color: var(--positive);
+}
+
+.financial-value.negative {
+  color: var(--negative);
+}

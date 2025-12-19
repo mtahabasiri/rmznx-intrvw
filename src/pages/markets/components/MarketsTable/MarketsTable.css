@@ -1,0 +1,33 @@
+.markets-table {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.table-body-container {
+  flex: 1;
+  overflow: hidden;
+}
+
+.table-body-scroll {
+  outline: none;
+}
+
+.table-body-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.table-body-scroll::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+.table-body-scroll::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+
+.table-body-scroll::-webkit-scrollbar-thumb:hover {
+  background: var(--text-tertiary);
+}

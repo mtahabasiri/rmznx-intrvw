@@ -1,0 +1,19 @@
+.no-results {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--text-secondary);
+  font-size: 1.125rem;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.no-results::before {
+  content: "🔍";
+  border: none;
+  animation: none;
+  font-size: 3rem;
+}
